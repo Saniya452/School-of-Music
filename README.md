@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+Important Info: 
+PORT:3000
+MONGODB_URI: mongodb+srv://ahmedsania198:softTeach198@mycluster.vc5tn.mongodb.net 
+TOKEN_SECRET: secret
+DOMAIN: http://localhost:3000
+
+EMAIL_USER=MS_0XGFlS@trial-zr6ke4n365mlon12.mlsender.net
+EMAIL_PASS=mssp.9WFE1it.vywj2lpxrn147oqz.9wI8pdQ
+EMAIL_HOST=smtp.mailersend.net  
+EMAIL_PORT=587  
