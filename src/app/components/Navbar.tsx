@@ -1,45 +1,83 @@
-'use client';
-import React, { useState } from "react";
-import { HoveredLink, Menu, MenuItem, ProductItem } from "../components/ui/navbar-menu";
-import { cn } from "../utils/cn";
-import Link from 'next/link';
+"use client";
+import {
+  Navbar as NavbarComponent,
+  NavBody,
+  NavItems,
+  MobileNav,
+  MobileNavHeader,
+  MobileNavMenu,
+  MobileNavToggle,
+  NavbarLogo,
+  NavbarButton,
+} from "@/components/ui/navbar";
+import { useState } from "react";
 
-function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null);
+const navigationItems = [
+  { name: "Home", link: "/" },
+  { name: "Courses", link: "/courses" },
+  { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" },
+];
+
+export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <div className={cn("absolute top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
-      <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item="Home" href="/" />
-        <MenuItem setActive={setActive} active={active} item="Services" href="/services">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/music-production">Music Production</HoveredLink>
-            <HoveredLink href="/sound-engineering">Sound Engineering</HoveredLink>
-            <HoveredLink href="/artist-management">Artist Management</HoveredLink>
-            <HoveredLink href="/music-marketing">Music Marketing</HoveredLink>
+    <NavbarComponent>
+      <NavBody>
+        <NavbarLogo />
+        <NavItems items={navigationItems} />
+        <div className="flex items-center gap-4">
+          <NavbarButton variant="secondary" href="/login">
+            Login
+          </NavbarButton>
+          <NavbarButton href="/signup">Sign Up</NavbarButton>
+        </div>
+      </NavBody>
+
+      <MobileNav>
+        <MobileNavHeader>
+          <NavbarLogo />
+          <MobileNavToggle
+            isOpen={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </MobileNavHeader>
+        <MobileNavMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        >
+          <div className="flex w-full flex-col gap-4">
+            {navigationItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.link}
+                className="text-lg font-medium text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
+            <div className="mt-4 flex flex-col gap-4">
+              <NavbarButton
+                variant="secondary"
+                href="/login"
+                className="w-full"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login
+              </NavbarButton>
+              <NavbarButton
+                href="/signup"
+                className="w-full"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sign Up
+              </NavbarButton>
+            </div>
           </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Courses" href="/courses">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/courses">All Courses</HoveredLink>
-            <HoveredLink href="/courses">Basic Music Theory</HoveredLink>
-            <HoveredLink href="/courses">Advanced Composition</HoveredLink>
-            <HoveredLink href="/courses">Songwriting</HoveredLink>
-            <HoveredLink href="/courses">Music Production</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="About" href="/about">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/our-story">Our Story</HoveredLink>
-            <HoveredLink href="/team">Our Team</HoveredLink>
-            <HoveredLink href="/mission">Our Mission</HoveredLink>
-            <HoveredLink href="/careers">Careers</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item="Contact" href="/contact" />
-      </Menu>
-    </div>
+        </MobileNavMenu>
+      </MobileNav>
+    </NavbarComponent>
   );
 }
-
-export default Navbar;
