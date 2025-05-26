@@ -35,27 +35,6 @@ function UpcomingWebinars() {
       isFeatured: true,
     },
     {
-        title: 'Understanding Music Theory',
-        description:
-          'Dive deep into the fundamentals of music theory and enhance your musical skills.',
-        slug: 'understanding-music-theory',
-        isFeatured: true,
-      },
-      {
-        title: 'The Art of Songwriting',
-        description:
-          'Learn the craft of songwriting from experienced musicians and songwriters.',
-        slug: 'the-art-of-songwriting',
-        isFeatured: true,
-      },
-      {
-        title: 'Mastering Your Instrument',
-        description:
-          'Advanced techniques to master your musical instrument of choice.',
-        slug: 'mastering-your-instrument',
-        isFeatured: true,
-      },
-    {
       title: 'Live Performance Techniques',
       description:
         'Enhance your live performance skills with expert tips and strategies.',
@@ -84,7 +63,7 @@ function UpcomingWebinars() {
             {
               title: webinar.title,
               description: webinar.description,
-              link: '/',
+              link: `/webinars/${webinar.slug}`,
               key: webinar.slug
             }
           ))}/>

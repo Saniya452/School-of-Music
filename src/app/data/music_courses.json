@@ -59,7 +59,6 @@
         "instructor": "Miles Davis",
         "isFeatured": true,
         "image": "/courses/jazz-improvisation.jpg"
-
       },
       {
         "id": 7,
@@ -110,16 +109,6 @@
         "instructor": "Ethan Moore",
         "isFeatured": true,
         "image": "/courses/blues.jpg"
-      },     
-      {
-        "id": 12,
-        "title": "Piano for Beginners",
-        "slug": "piano-for-beginners",
-        "description": "Start your musical journey with foundational piano skills taught by expert instructors.",
-        "price": 109.99,
-        "instructor": "Jane Smith",
-        "isFeatured": false,
-        "image": "/courses/piano.jpg" 
       }
     ]
   }

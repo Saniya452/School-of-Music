@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="dark">
       
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         {shouldShowNavbar && (
           <div className="relative w-full flex items-center justify-center">
             <Navbar />
